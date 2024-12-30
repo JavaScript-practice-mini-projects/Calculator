@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <!-- fontAwesome icons 
+    <script src="https://kit.fontawesome.com/37df3b9ad9.js" crossorigin="anonymous"></script> -->
+    <!-- css  -->
+     <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="wrapper">
+        <div class="calculator">
+            <!-- show result  -->
+            <input class="show-results" type="text" id="showResults" placeholder="00">
+            <div class="cal-btn">
+                <button class="bg-btn-color ac" onclick="acButton()">AC</button>
+                <button class="bg-btn-color btn1" onclick="showNum('()')">()</button>
+                <button class="bg-btn-color btn1" onclick="showNum('%')">%</button>
+                <button class="bg-btn-color btn1" onclick="showNum('/')">/</button>
+                <button class="bg-btn-color btn2" onclick="showNum('7')">7</button>
+                <button class="bg-btn-color btn2" onclick="showNum('8')">8</button>
+                <button class="bg-btn-color btn2" onclick="showNum('9')">9</button>
+                <button class="bg-btn-color btn1" onclick="showNum('*')">*</button>
+                <button class="bg-btn-color btn2" onclick="showNum('4')">4</button>
+                <button class="bg-btn-color btn2" onclick="showNum('5')">5</button>
+                <button class="bg-btn-color btn2" onclick="showNum('6')">6</button>
+                <button class="bg-btn-color btn1" onclick="showNum('-')">-</button>
+                <button class="bg-btn-color btn2" onclick="showNum('1')">1</button>
+                <button class="bg-btn-color btn2" onclick="showNum('2')">2</button>
+                <button class="bg-btn-color btn2" onclick="showNum('3')">3</button>
+                <button class="bg-btn-color btn1" onclick="showNum('+')">+</button>
+                <button class="bg-btn-color btn2" onclick="showNum('0')">0</button>
+                <button class="bg-btn-color btn2" onclick="showNum('.')">•</button>
+                <button class="bg-btn-color btn2 del" onclick="del()" >Del</button>
+                <button class="bg-btn-color equals" onclick="calculate()">=</button>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="./index.js"></script>
+</body>
+</html>
