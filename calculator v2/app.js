@@ -3,14 +3,15 @@ const mathDisplay = document.getElementById('mathDisplay');
 const resultDisplay = document.getElementById('resultDisplay');
 let currentValue = '';
 let previousValue = '';
+let mathAndOperator = '';
 let operator = '';
-let mathOperator = '';
 let lastResult = '';
 
 
 
-
-
+// setTimeout(() => {
+//     console.log(lastResult)
+// }, 10000);
 
 
 /**
@@ -18,11 +19,10 @@ let lastResult = '';
  * @param {string} num 
  */
 function appendValue(num){
-    console.log( typeof num)
     currentValue += num
-    mathOperator += num
-    mathDisplay.textContent = mathOperator;
-    console.log(mathOperator)
+    mathAndOperator += num
+    mathDisplay.textContent = mathAndOperator;
+
 }
 
 /**
@@ -30,38 +30,39 @@ function appendValue(num){
  * @param {string} op 
  */
 function setOperator(op){
+    
     operator = op
-    mathOperator += op
-    mathDisplay.textContent = mathOperator;
-
+    mathAndOperator += operator
+    mathDisplay.textContent = mathAndOperator;
     previousValue = currentValue;
     currentValue = '';
-    console.log(mathOperator)
 }
 
+
+
+
 function equals(){
+    if(operator === '') return;
 
     let result = ''
+    switch (operator){
+        case '+': result = Number(previousValue) + Number(currentValue);
+            break;
+        case '-': result = Number(previousValue) - Number(currentValue);
+            break;
+        
+        case '*': result = Number(previousValue) * Number(currentValue);
+            break;
+        
+        case '/': result = Number(previousValue) / Number(currentValue);
+            break;
 
-    if(operator === '+') {
-        console.log('success')
-        result  = Number(previousValue) + Number(currentValue)
-    }else if(operator === '-'){
-         result  = Number(previousValue) - Number(currentValue)
-    }else if(operator === '*'){
-         result  = Number(previousValue) * Number(currentValue)
-    }else if(operator === '/'){
-         result  = Number(previousValue) / Number(currentValue)
-    }else{
-        console.log('Invalid operator')
+        default: console.error('Invalid operator');
+        return
     }
 
-    // lastResult = toString(result)
-    let currentValue = '';
-    let previousValue = '';
-    let operator = '';
-
-    resultDisplay.textContent = result
+    resultDisplay.textContent = result;
+    variablesClear()
 }
 
 
@@ -70,9 +71,19 @@ function equals(){
  * all calculate results empty
  */
 function clearDisplay(){
-    
+    currentValue = '';
+    previousValue = '';
+    mathAndOperator = '';
+    operator = '';
     mathDisplay.textContent = '00';
     resultDisplay.textContent = '00';
 }
 
-
+/**
+ * clears previous used variable
+ */
+function variablesClear(){
+    currentValue = '';
+    previousValue = '';
+    operator = '';
+}
