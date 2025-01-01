@@ -1,3 +1,7 @@
+/**
+ *  1, ...-2,-1 not work.
+ */
+
 
 const mathDisplay = document.getElementById('mathDisplay');
 const resultDisplay = document.getElementById('resultDisplay');
@@ -9,9 +13,6 @@ let lastResult = '';
 
 
 
-// setTimeout(() => {
-//     console.log(lastResult)
-// }, 10000);
 
 
 /**
